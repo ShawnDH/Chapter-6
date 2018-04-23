@@ -7,34 +7,20 @@ Author:ShawnD Herrick */
 //#include <random>
 #include <stdio.h>
 #include <stdlib.h>
-void level1();
-void level2();
-void level3();
-int main()
-{
-
-	for ()
-	{
-		switch ()
-		{
-		default:
-			break;
-		}
-	}
-	system("pause");
-	return 0;
-}
+#include <string>
+using namespace std;
 //Level 1
-void level1()
+int level1(int& count)
 {
 	int numChoice;
 	int secret;
-	int count = 1;
-	using namespace std;
+	int r;
+	count = 1;
 	//initialize random seed
 	srand(time(NULL));
 	//generate secret number between 1 and 10
 	secret = rand() % 10 + 1;
+
 	do{
 		cout << "Please pick a number between 1-10 \n >";
 		cin >> numChoice;
@@ -50,15 +36,16 @@ void level1()
 			count = count + 1;
 		}
 	} while (numChoice != secret);
-	main();
+	r = count;
+	return  r;
 }
 //Level 2
-void level2()
+int level2(int& count)
 {
 	int numChoice;
 	int secret;
-	int count = 1;
-	using namespace std;
+	int r;
+	count = 1;
 	//initialize random seed
 	srand(time(NULL));
 	//generate secret number between 1 and 100
@@ -78,19 +65,20 @@ void level2()
 			count = count + 1;
 		}
 	} while (numChoice != secret);
-	main();
+	r = count;
+	return  r;
 }
 //Level 3
-void level3()
+int level3(int& count)
 {
 	int numChoice;
 	int secret;
-	int count = 1;
-	using namespace std;
+	int r;
+	count = 1;
 	//initialize random seed
 	srand(time(NULL));
 	//generate secret number between 1 and 1000
-	secret = rand() % 10 + 1;
+	secret = rand() % 1000 + 1;
 	do{
 		cout << "Please pick a number between 1-1000 \n >";
 		cin >> numChoice;
@@ -106,5 +94,36 @@ void level3()
 			count = count + 1;
 		}
 	} while (numChoice != secret);
-	main();
+	r = count;
+	return  r;
+}
+int main()
+{
+	int x = 0;
+	int levelChoice;
+	cout << "Please choose a level \n >Level ";
+	cin >> levelChoice;
+	
+	switch (levelChoice)
+	{
+	case 1:
+		level1(x);
+		break;
+	case 2:
+		level2(x);
+		break;
+	case 3:
+		level3(x);
+		break;
+	default:
+		break;
+	}
+	if (levelChoice >= 4 || levelChoice <= 0)
+	{
+		cout << "That isn't a level. Please try again. \n";
+		main();
+	}
+	cout << "You took " << x << " tries on level " << levelChoice << " 5 times! \n Conga-Rats!" << endl;
+	system("pause");
+	return 0;
 }
