@@ -10,7 +10,7 @@ using namespace std;
 int main()
 {
 	int i = 0;
-	int a = 0;					//American Dollars
+	double a = 0;				//American Dollars
 	double ca = .9813;			//Canadian Dollar
 	double e = .757;			//Euro
 	double in = 52.53;			//Indian Rupee
